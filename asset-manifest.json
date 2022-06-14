@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/game-of-thrones/static/js/main.deaeca06.js",
+    "main.js": "/game-of-thrones/static/js/main.c2c4ad05.js",
     "static/media/game-of-thrones.jpg": "/game-of-thrones/static/media/game-of-thrones.73179b2c04f7b281cd55.jpg",
     "index.html": "/game-of-thrones/index.html",
-    "main.deaeca06.js.map": "/game-of-thrones/static/js/main.deaeca06.js.map"
+    "main.c2c4ad05.js.map": "/game-of-thrones/static/js/main.c2c4ad05.js.map"
   },
   "entrypoints": [
-    "static/js/main.deaeca06.js"
+    "static/js/main.c2c4ad05.js"
   ]
 }
