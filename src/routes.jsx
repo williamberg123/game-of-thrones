@@ -15,8 +15,8 @@ export default function AppRoutes() {
 			</Header>
 			<Routes>
 				<Route path="/game-of-thrones/" element={ <Home /> } index />
-				<Route path="/game-of-thrones/character" element={ <CharacterPage /> } />
-				<Route path="/game-of-thrones/continent" element={ <ContinentPage /> } />
+				<Route path="/game-of-thrones/characters" element={ <CharacterPage /> } />
+				<Route path="/game-of-thrones/continents" element={ <ContinentPage /> } />
 				<Route path="/game-of-thrones/favs" element={ <FavPage /> } />
 			</Routes>
 		</BrowserRouter>

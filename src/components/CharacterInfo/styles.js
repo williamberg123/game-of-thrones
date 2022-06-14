@@ -15,6 +15,15 @@ const StyledCharacterInfo = styled.div`
 		color: #555;
 		margin-top: 10px;
 	}
+
+	& > label {
+		margin-top: auto;
+		color: white;
+	}
+
+	& > label > input[type="checkbox"] {
+		margin-right: 10px;
+	}
 `;
 
 export default StyledCharacterInfo;

@@ -12,7 +12,7 @@ export default function AppProvider({ children }) {
 	const [ continents ] = useState([]);
 	const [ page, setPage ] = useState('home');
 
-	const actions = buildActions(charactersDispatch);
+	const charactersActions = useCallback(buildActions(charactersDispatch), []);
 
 	const baseUrlCharacters = 'https://thronesapi.com/api/v2/characters';
 	// const baseUrlContinents = 'https://thronesapi.com/api/v2/continents';
@@ -25,9 +25,13 @@ export default function AppProvider({ children }) {
 		setPage(actuallyPage);
 	}, []);
 
+	const toggleFavs = useCallback((characterId) => {
+		charactersActions.toggleFav(characterId);
+	}, []);
+
 	const loadCharacters = async () => {
 		const charactersData = await getCharacters(baseUrlCharacters);
-		actions.loadCharacters(charactersData.data);
+		charactersActions.loadCharacters(charactersData);
 	};
 
 	// const loadContinents = async () => {
@@ -42,9 +46,9 @@ export default function AppProvider({ children }) {
 
 	const memoizedContext = useMemo(
 		() => (
-			{ actions, characters, continents, page, funcSetPage }
+			{ charactersActions, characters, continents, page, funcSetPage, toggleFavs }
 		),
-		[actions, characters, continents, page],
+		[characters, continents, page, toggleFavs],
 	);
 
 	return (

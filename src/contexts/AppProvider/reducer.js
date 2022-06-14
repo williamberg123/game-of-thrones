@@ -9,6 +9,15 @@ const reducer = (state, action) => {
 		case types.LOAD_CONTINENTS: {
 			return [ ...action.payload ];
 		}
+
+		case types.TOGGLE_FAV: {
+			const characterId = action.payload;
+			const itemIndex = state.findIndex(({ id }) => id === characterId);
+			const updatedState = [ ...state ];
+
+			updatedState[itemIndex].isFav = !updatedState[itemIndex].isFav;
+			return [ ...updatedState ];
+		}
 	}
 
 	return [ ...state ];

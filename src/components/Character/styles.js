@@ -8,6 +8,7 @@ const StyledCharacter = styled.div`
 	& > img {
 		width: 50%;
 		margin-right: 20px;
+		border-radius: 5px;
 	}
 `;
 

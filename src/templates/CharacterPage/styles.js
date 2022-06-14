@@ -1,6 +1,4 @@
 import styled from 'styled-components';
 
-const StyledCharacterPage = styled.div`
-
-`;
+const StyledCharacterPage = styled.div``;
 export default StyledCharacterPage;
