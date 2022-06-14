@@ -18,11 +18,41 @@ const StyledCharacterInfo = styled.div`
 
 	& > label {
 		margin-top: auto;
-		color: white;
+		color: #999;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+	}
+
+	& > label svg {
+		margin-right: 5px;
+		width: 25px;
+		height: 25px;
+		fill: white;
+	}
+
+	& .svg-fav {
+		fill: green;
 	}
 
 	& > label > input[type="checkbox"] {
 		margin-right: 10px;
+		display: none;
+	}
+
+	@media (max-width: 800px) {
+		& > h2 {
+			font-size: 0.8rem;
+		}
+
+		& > p {
+			font-size: 0.8rem;
+			margin-top: 5px;
+		}
+
+		& > label {
+			font-size: 0.8rem;
+		}
 	}
 `;
 

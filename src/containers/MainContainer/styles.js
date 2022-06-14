@@ -6,10 +6,6 @@ const StyledMainContainer = styled.main`
 	flex-direction: column;
 	margin: 0 auto;
 	padding: 20px;
-
-	& > img {
-		max-width: 500px;
-	}
 `;
 
 export default StyledMainContainer;

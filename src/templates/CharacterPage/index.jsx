@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import Loader from 'react-js-loader';
 
 import AppContext from '../../contexts/AppProvider/context';
 import RenderIf from '../../components/RenderIf';
@@ -14,8 +15,12 @@ export default function CharacterPage() {
 		<StyledCharacterPage>
 			<h1>Character page</h1>
 			<MainContainer>
+				<RenderIf isTrue={ !characters.length }>
+					<Loader type="spinner-default" bgColor="#FFFFFF" size={70} />
+				</RenderIf>
+
 				<RenderIf isTrue={!!characters.length}>
-					<CharactersList />
+					<CharactersList characters={characters} />
 				</RenderIf>
 			</MainContainer>
 		</StyledCharacterPage>

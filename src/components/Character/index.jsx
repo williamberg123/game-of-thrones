@@ -8,10 +8,12 @@ export default function Character(props) {
 	const { imageUrl } = props;
 
 	return (
-		<StyledCharacter>
-			<Image src={imageUrl} />
-			<CharacterInfo {...props} />
-		</StyledCharacter>
+		<div>
+			<StyledCharacter>
+				<Image src={imageUrl} />
+				<CharacterInfo {...props} />
+			</StyledCharacter>
+		</div>
 	);
 }
 

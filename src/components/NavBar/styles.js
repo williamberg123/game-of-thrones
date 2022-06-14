@@ -24,5 +24,11 @@ const StyledNavBar = styled.nav`
 		transition: 0.3s;
 		border-radius: 3px;
 	}
+
+	@media (max-width: 500px) {
+		& > ul a {
+			font-size: 0.5rem;
+		}
+	}
 `;
 export default StyledNavBar;

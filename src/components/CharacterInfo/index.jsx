@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import AppContext from '../../contexts/AppProvider/context';
+import { MdOutlineFavoriteBorder, MdOutlineFavorite } from 'react-icons/md';
 
+import AppContext from '../../contexts/AppProvider/context';
 import StyledCharacterInfo from './styles';
 
 export default function CharacterInfo({ id, fullName, title, isFav }) {
@@ -14,7 +15,7 @@ export default function CharacterInfo({ id, fullName, title, isFav }) {
 
 			<label htmlFor={`checkbox-${id}`}>
 				<input checked={isFav} onChange={() => toggleFavs(id)} id={`checkbox-${id}`} type="checkbox" />
-				favoritos
+				{isFav ? <MdOutlineFavorite className="svg-fav" /> : <MdOutlineFavoriteBorder />}
 			</label>
 		</StyledCharacterInfo>
 	);

@@ -5,17 +5,17 @@ import AppContext from './context';
 import reducer from './reducer';
 import buildActions from './buildActions';
 import getCharacters from '../../utils/getCharacters';
-// import getContinents from '../../utils/getContinents';
+import getContinents from '../../utils/getContinents';
 
 export default function AppProvider({ children }) {
 	const [ characters, charactersDispatch ] = useReducer(reducer, []);
-	const [ continents ] = useState([]);
+	const [ continents, setContinents ] = useState([]);
 	const [ page, setPage ] = useState('home');
 
 	const charactersActions = useCallback(buildActions(charactersDispatch), []);
 
 	const baseUrlCharacters = 'https://thronesapi.com/api/v2/characters';
-	// const baseUrlContinents = 'https://thronesapi.com/api/v2/continents';
+	const baseUrlContinents = 'https://thronesapi.com/api/v2/continents';
 
 	const funcSetPage = useCallback((e, actuallyPage) => {
 		const allLinks = document.querySelector('nav').querySelectorAll('a');
@@ -34,14 +34,14 @@ export default function AppProvider({ children }) {
 		charactersActions.loadCharacters(charactersData);
 	};
 
-	// const loadContinents = async () => {
-	// 	const charactersData = await getContinents(baseUrlCharacters);
-	// 	actions.loadContinents(charactersData.data);
-	// };
+	const loadContinents = async () => {
+		const continentsData = await getContinents(baseUrlContinents);
+		setContinents(continentsData.data);
+	};
 
 	useEffect(() => {
 		loadCharacters();
-		// loadContinents();
+		loadContinents();
 	}, []);
 
 	const memoizedContext = useMemo(

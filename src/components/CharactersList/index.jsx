@@ -1,13 +1,9 @@
-import { useContext } from 'react';
-
+import PropTypes from 'prop-types';
 import Character from '../Character';
 
-import AppContext from '../../contexts/AppProvider/context';
 import StyledCharactersList from './styles';
 
-export default function CharactersList() {
-	const { characters } = useContext(AppContext);
-
+export default function CharactersList({ characters }) {
 	const charactersList = characters.map(
 		(character) => <Character key={character.id} {...character} />,
 	);
@@ -18,3 +14,6 @@ export default function CharactersList() {
 		</StyledCharactersList>
 	);
 }
+CharactersList.propTypes = {
+	characters: PropTypes.instanceOf(Array).isRequired,
+};
