@@ -27,5 +27,7 @@ module.exports = {
 		'arrow-body-style': 'off',
 		'default-case': 'off',
 		'array-bracket-spacing': 'off',
+		'react/jsx-props-no-spreading': 'off',
+		'object-curly-newline': 'off',
 	},
 };

@@ -2,8 +2,8 @@ import * as types from './types';
 
 const buildActions = (dispatch) => {
 	return {
-		addFav: (itemId) => dispatch({ type: types.ADD_FAV, payload: itemId }),
-		removeFav: (itemId) => dispatch({ type: types.REMOVE_FAV, payload: itemId }),
+		loadCharacters: (characters) => dispatch({ type: types.LOAD_CHARACTERS, payload: characters }),
+		loadContinents: (continents) => dispatch({ type: types.LOAD_CONTINENTS, payload: continents }),
 	};
 };
 

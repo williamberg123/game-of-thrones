@@ -4,10 +4,15 @@ import Home from './templates/Home';
 import CharacterPage from './templates/CharacterPage';
 import ContinentPage from './templates/ContinentPage';
 import FavPage from './templates/FavPage';
+import NavBar from './components/NavBar';
+import Header from './components/Header';
 
 export default function AppRoutes() {
 	return (
 		<BrowserRouter>
+			<Header>
+				<NavBar />
+			</Header>
 			<Routes>
 				<Route path="/game-of-thrones/" element={ <Home /> } index />
 				<Route path="/game-of-thrones/character" element={ <CharacterPage /> } />
