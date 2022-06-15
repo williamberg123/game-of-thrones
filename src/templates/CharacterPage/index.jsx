@@ -13,8 +13,8 @@ export default function CharacterPage() {
 
 	return (
 		<StyledCharacterPage>
-			<h1>Character page</h1>
 			<MainContainer>
+				<h2>PERSONAGENS</h2>
 				<RenderIf isTrue={ !characters.length }>
 					<Loader type="spinner-default" bgColor="#FFFFFF" size={70} />
 				</RenderIf>

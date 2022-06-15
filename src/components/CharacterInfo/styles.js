@@ -32,7 +32,7 @@ const StyledCharacterInfo = styled.div`
 	}
 
 	& .svg-fav {
-		fill: green;
+		fill: #11A80C;
 	}
 
 	& > label > input[type="checkbox"] {

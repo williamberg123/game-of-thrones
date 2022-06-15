@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../../contexts/AppProvider/context';
 
@@ -6,6 +6,25 @@ import StyledNavBar from './styles';
 
 export default function NavBar() {
 	const { funcSetPage, tagUlRef } = useContext(AppContext);
+	const deviceWidth = document.body.clientWidth;
+
+	useEffect(() => {
+		const outSideClick = (e) => {
+			if (e.target !== tagUlRef.current && e.target.tagName !== 'svg' && e.target.tagName !== 'path') {
+				tagUlRef.current.style.display = 'none';
+			}
+		};
+
+		if (deviceWidth < 600) {
+			document.addEventListener('click', outSideClick);
+		} else {
+			document.removeEventListener('click', outSideClick);
+		}
+
+		return () => {
+			document.removeEventListener('click', outSideClick);
+		};
+	}, [deviceWidth]);
 
 	return (
 		<StyledNavBar>

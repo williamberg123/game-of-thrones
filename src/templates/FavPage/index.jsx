@@ -15,6 +15,7 @@ export default function FavPage() {
 		<StyledFavPage>
 			<FavsProvider>
 				<MainContainer>
+					<h2>FAVORITOS</h2>
 					<RenderIf isTrue={ !!characters.length }>
 						<FavsList characters={characters} />
 					</RenderIf>
