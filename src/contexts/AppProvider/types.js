@@ -1,3 +1,2 @@
 export const LOAD_CHARACTERS = 'LOAD_CHARACTERS';
-export const LOAD_CONTINENTS = 'LOAD_CONTINENTS';
 export const TOGGLE_FAV = 'ADD_FAV';

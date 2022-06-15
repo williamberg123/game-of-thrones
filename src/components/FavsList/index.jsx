@@ -4,13 +4,19 @@ import Character from '../Character';
 import StyledCharactersList from '../CharactersList/styles';
 
 export default function FavsList({ characters }) {
-	const favsList = characters.map((character) => {
-		return character.isFav ? <Character key={character.id} {...character} /> : null;
+	const favs = characters.filter(({ isFav }) => !!isFav);
+
+	const favsList = favs.map((character) => {
+		return <Character key={character.id} {...character} />;
 	});
 
 	return (
 		<StyledCharactersList>
-			{favsList}
+			{
+				favsList.length
+				? favsList
+				: <p style={{ color: '#999' }}>Nenhum personagem favorito</p>
+			}
 		</StyledCharactersList>
 	);
 }

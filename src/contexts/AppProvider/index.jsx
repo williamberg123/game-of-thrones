@@ -5,11 +5,9 @@ import AppContext from './context';
 import reducer from './reducer';
 import buildActions from './buildActions';
 import getCharacters from '../../utils/getCharacters';
-import getContinents from '../../utils/getContinents';
 
 export default function AppProvider({ children }) {
 	const [ characters, charactersDispatch ] = useReducer(reducer, []);
-	const [ continents, setContinents ] = useState([]);
 	const [ page, setPage ] = useState('home');
 
 	const tagUlRef = useRef(null);
@@ -17,7 +15,6 @@ export default function AppProvider({ children }) {
 	const charactersActions = useCallback(buildActions(charactersDispatch), []);
 
 	const baseUrlCharacters = 'https://thronesapi.com/api/v2/characters';
-	const baseUrlContinents = 'https://thronesapi.com/api/v2/continents';
 
 	const funcSetPage = useCallback((e, actuallyPage) => {
 		const allLinks = document.querySelector('nav').querySelectorAll('a');
@@ -43,24 +40,18 @@ export default function AppProvider({ children }) {
 		charactersActions.loadCharacters(charactersData);
 	};
 
-	const loadContinents = async () => {
-		const continentsData = await getContinents(baseUrlContinents);
-		setContinents(continentsData.data);
-	};
-
 	useEffect(() => {
 		loadCharacters();
-		loadContinents();
 	}, []);
 
 	const memoizedContext = useMemo(
 		() => (
 			{
-				charactersActions, characters, continents, page, funcSetPage,
+				charactersActions, characters, page, funcSetPage,
 				toggleFavs, toggleMenuBar, tagUlRef,
 			}
 		),
-		[characters, continents, page, toggleFavs],
+		[characters, page, toggleFavs],
 	);
 
 	return (

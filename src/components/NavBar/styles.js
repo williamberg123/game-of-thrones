@@ -29,18 +29,22 @@ const StyledNavBar = styled.nav`
 		& > ul {
 			display: none;
 			height: 100vh;
-			width: 50%;
+			width: 100%;
 			justify-content: flex-start;
 			position: absolute;
 			flex-direction: column;
 			top: 0;
 			left: 0;
-			background-color: black;
+			background-color: rgba(0, 0, 0, 0.7);
 		}
 
 		& > ul li {
 			margin: 20px 0;
 			text-align: center;
+		}
+
+		& > ul a {
+			font-size: 1rem;
 		}
 	}
 `;

@@ -6,10 +6,6 @@ const reducer = (state, action) => {
 			return [ ...action.payload ];
 		}
 
-		case types.LOAD_CONTINENTS: {
-			return [ ...action.payload ];
-		}
-
 		case types.TOGGLE_FAV: {
 			const characterId = action.payload;
 			const itemIndex = state.findIndex(({ id }) => id === characterId);
