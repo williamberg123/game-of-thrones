@@ -25,9 +25,22 @@ const StyledNavBar = styled.nav`
 		border-radius: 3px;
 	}
 
-	@media (max-width: 500px) {
-		& > ul a {
-			font-size: 0.5rem;
+	@media (max-width: 600px) {
+		& > ul {
+			display: none;
+			height: 100vh;
+			width: 50%;
+			justify-content: flex-start;
+			position: absolute;
+			flex-direction: column;
+			top: 0;
+			left: 0;
+			background-color: black;
+		}
+
+		& > ul li {
+			margin: 20px 0;
+			text-align: center;
 		}
 	}
 `;

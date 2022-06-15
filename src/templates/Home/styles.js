@@ -50,9 +50,10 @@ const StyledHome = styled.div`
 		}
 	}
 
-	@media (max-width: 500px) {
+	@media (max-width: 600px) {
 		& main {
 			flex-direction: column;
+			padding-top: 0;
 		}
 
 		& > main > img {

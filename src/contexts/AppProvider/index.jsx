@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import AppContext from './context';
@@ -12,6 +12,8 @@ export default function AppProvider({ children }) {
 	const [ continents, setContinents ] = useState([]);
 	const [ page, setPage ] = useState('home');
 
+	const tagUlRef = useRef(null);
+
 	const charactersActions = useCallback(buildActions(charactersDispatch), []);
 
 	const baseUrlCharacters = 'https://thronesapi.com/api/v2/characters';
@@ -23,10 +25,17 @@ export default function AppProvider({ children }) {
 
 		e.target.classList.add('actually-page');
 		setPage(actuallyPage);
+		const deviceWidth = document.body.clientWidth;
+
+		if (deviceWidth <= 600) tagUlRef.current.style.display = 'none';
 	}, []);
 
 	const toggleFavs = useCallback((characterId) => {
 		charactersActions.toggleFav(characterId);
+	}, []);
+
+	const toggleMenuBar = useCallback(() => {
+		tagUlRef.current.style.display = 'flex';
 	}, []);
 
 	const loadCharacters = async () => {
@@ -46,7 +55,10 @@ export default function AppProvider({ children }) {
 
 	const memoizedContext = useMemo(
 		() => (
-			{ charactersActions, characters, continents, page, funcSetPage, toggleFavs }
+			{
+				charactersActions, characters, continents, page, funcSetPage,
+				toggleFavs, toggleMenuBar, tagUlRef,
+			}
 		),
 		[characters, continents, page, toggleFavs],
 	);
